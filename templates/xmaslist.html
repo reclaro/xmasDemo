@@ -1,0 +1,28 @@
+{% extends "bootstrap/base.html" %}
+
+{% block scripts %}
+    {{ super() }}
+    <script>
+        function refreshIframe(val) {
+           var ifr = document.getElementsByName('yt')[0];
+           ifr.src ="https://www.youtube.com/embed/"+val+"?autoplay=1";
+    }
+</script>
+
+{% endblock %}
+
+{% block title %}This is an example page{% endblock %}
+
+{% block content %}
+  <h1>Xmas play list Application</h1>
+
+ <iframe name="yt" src="" width="653" height="480" frameborder="0" allowfullscreen></iframe>
+ 
+
+ {% for song in songs %}
+             <button class="list-group-item" onclick="refreshIframe(this.value);" value="{{ song.song_id}}" >{{  song.title }} </button><br>
+{% endfor %}
+   
+{% endblock %}
+
+
