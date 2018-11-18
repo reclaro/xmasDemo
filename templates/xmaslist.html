@@ -11,15 +11,14 @@
 
 {% endblock %}
 
-{% block title %}This is an example page{% endblock %}
+{% block title %}Christmas Play List{% endblock %}
 
 {% block content %}
   <h1>Xmas play list Application</h1>
 
- <iframe name="yt" src="" width="653" height="480" frameborder="0" allowfullscreen></iframe>
+ <iframe name="yt" src="" width="653" height="400" frameborder="0" allowfullscreen></iframe>
  
-
- {% for song in songs %}
+  {% for song in songs %}
              <button class="list-group-item" onclick="refreshIframe(this.value);" value="{{ song.song_id}}" >{{  song.title }} </button><br>
 {% endfor %}
    
