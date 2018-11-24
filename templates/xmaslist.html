@@ -2,12 +2,6 @@
 
 {% block scripts %}
     {{ super() }}
-    <script>
-        function refreshIframe(val) {
-           var ifr = document.getElementsByName('yt')[0];
-           ifr.src ="https://www.youtube.com/embed/"+val+"?autoplay=1";
-    }
-</script>
 
 {% endblock %}
 
@@ -16,10 +10,10 @@
 {% block content %}
   <h1>Xmas play list Application</h1>
 
- <iframe name="yt" src="" width="653" height="400" frameborder="0" allowfullscreen></iframe>
- 
   {% for song in songs %}
-             <button class="list-group-item" onclick="refreshIframe(this.value);" value="{{ song.song_id}}" >{{  song.title }} </button><br>
+  <div class="list-group">
+	  <a href="https://www.youtube.com//watch?v={{ song.song_id }}" target="external" class="list-group-item list-group-item-action">{{  song.title }}</a> 
+  </div>
 {% endfor %}
    
 {% endblock %}
